@@ -1,6 +1,7 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
+
 function AddTask(){
     if(inputBox.value === ""){
         alert("Please fill the task!");
@@ -28,6 +29,15 @@ listContainer.addEventListener("click", function(e){
     }
 
 },   false);
+
+inputBox.addEventListener("keydown", function(event){
+    if (event.key === "Enter") {
+        event.preventDefault();
+        AddTask();
+    }
+})
+
+
 
 function saveData() {
     localStorage.setItem("data", listContainer.innerHTML);
